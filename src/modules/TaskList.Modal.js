@@ -50,4 +50,59 @@ export const getTask = () => {
 }
 
 
+// get single ticket
+export const getATask = (_id) =>
+{
+    return new Promise((resolve, reject) => {
+        ListSchema.findById(_id)
+            .then((data) => {
+                resolve (data)
+
+             })
+            .catch((error) => {
+            reject (error)
+        })
+    })
+
+}
+
+
+// delete a multiple document
+export const deleteTasks = (ids) => {
+
+    return new Promise((resolve, reject) => {
+        ListSchema.deleteMany({
+            _id: {
+               $in: ids
+            }
+            })
+            .then((data) => {
+                resolve(data)})
+            .catch((error) => {
+                reject(error)
+            })
+
+        })
+
+}
+
+// switch between task 
+
+export const updateToDo = ({id, todo}) => {
+    return new Promise((resolve, reject) => {
+        ListSchema.findByIdAndUpdate(
+            id,
+            {
+                todo,
+            }, {
+                new : true, 
+            }
+
+        ).then((result) => resolve(result))
+        .catch((error) => reject(error))
+    })
+
+}
+
+
 

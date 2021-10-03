@@ -4,24 +4,32 @@
 ### fetch all the tickets  
 
 GET http://localhost:8000/api/v1/
-
 ### add new tickets  
 
 POST  http://localhost:8000/api/v1/
 Content-Type: application/json 
 
 {
-    "task": "coding",
-    "hr": 20
+    "task": "sadasd : ",
+    "hr": 1321
 }
 
 
 ### update tickets  
 
 PATCH  http://localhost:8000/api/v1/
+Content-Type: application/json 
 
-{}
+{
+"id" : "6140803e17c4eacf960c6a02",
+"todo" : false
+}
 
 ### delete  tickets  
 
 DELETE  http://localhost:8000/api/v1/
+Content-Type: application/json 
+
+{
+    "ids" : ["6159094d5df7b9e9056bb0ef", "6159094e5df7b9e9056bb0f1"]
+}
