@@ -67,10 +67,11 @@ route.patch("/" , async(req, res)=> {
             return res.json({status : "error" , message : "invalid id"}) 
         }
         const result = await updateToDo(req.body)
-        const msg = result ? "Selected data updated" : "No thing is updated"
-        res.json({ msg, result })
-        console.log(msg)
-    
+        res.json({
+            status: 'success',
+            message: 'The selected task has been updated',
+            result,
+          })
 } catch (error) {
         res.json({
             status: "error",
