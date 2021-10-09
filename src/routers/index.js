@@ -40,11 +40,21 @@ route.post("/", async (req, res) => {
 
     try {
         const result = await insertTaskLists(req.body)
-   
-        res.json(result)
+            
+       
+        res.json(
+            {
+                status: result._id ? "success" : "error",
+                message: result._id ? "Task has been added " : "Error, unable to add the task, please try again later",
+                result,
+            }
+        )
     } catch (error) {
         console.log(error)
-        res.json({message: error.message})
+        res.json({
+            status: "error",
+            message: error.message
+        })
         
     }
    
@@ -81,10 +91,19 @@ route.delete("/" , async(req, res)=> {
             res.json({status : "error" , message : "invalid id"})
         }
         const result = await deleteTasks(ids)
-        const msg = result ? result : { message: "Id already deleted or doesnt exist " }
-        res.json(msg)
+        res.json({
+            status: "success",
+            message: "The selected task has been deleted",
+            result,
+        })
+        
+
     } catch (error) {
         console.log(error)
+        res.json({
+            status: "error",
+            message:"Error, Unable to delete the selected tasks"
+        })
         
     }
 })
