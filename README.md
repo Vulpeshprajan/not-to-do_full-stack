@@ -1,12 +1,17 @@
-# No to do backend api
+# No to do full stack app
 
-this is the backend api for out not to do react app
+-This project is deploying on heruku and here is the live link
+
+- This is the monorepo for our notodo full stack application
 
 ## How to use
 
-- Clone the project
-- run `npm install`
-- Make sure to have `nodemon` install globally in your system if you dont have then run `node i -g nodemon`
+- Clone the repo
+- run `npm install`from the root dir. for the node backend
+- `cd react-frontend-app`
+- run `npm install` to install all the react dependency
+- `cd .. ` back to root folder
+- run `npm start`
 
 ### API Endpoints
 

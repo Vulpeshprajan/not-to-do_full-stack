@@ -1,8 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config()
+
 import express from "express";
 const app = express()
 import cors from "cors";
+// import fs from "fs"
+import path from "path";
 
-const PORT = 8000
+
+const PORT = process.env.PORT || 5000
 
 
 import mongoClient from "./src/config/db.js";
@@ -20,8 +26,17 @@ import routers from "./src/routers/index.js";
 
 app.use("/api/v1/", routers)
 
-app.use('/', function (req, res) {
-  res.send('Hello ')
+// ---
+
+// serving react application through Node server 
+const __dirname = path.resolve()
+
+app.use(express.static(path.join(__dirname, "/react-front-app/build")))
+
+app.get('/', function (req, res) {
+  // res.send('Hello ')
+  res.sendFile(path.join(__dirname, "/react-front-app/build/index.html"))
+
 })
 
 app.listen(PORT, (error) => {
