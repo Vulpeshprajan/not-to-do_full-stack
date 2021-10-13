@@ -8,7 +8,7 @@
     "dev": "nodemon backend-node-api/app.js",
     "start": "node backend-node-api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heruko-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix react-front-app && npm run build --prefix react-front-app"
+    "heruko-postbuild":"NPM_CONFIG_PRODUCTION=false npm insall --prefix react-front-app && npm run build --prefix react-front-app"
     
   },
   "author": "Sagar Pyakurel",

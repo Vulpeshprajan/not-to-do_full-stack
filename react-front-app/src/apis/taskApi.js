@@ -1,7 +1,7 @@
 import  axios  from "axios";
 
 // const rootUrl = "http://localhost:5000/"
-const taskApi = "api/v1/"
+const taskApi = "/api/v1/"
 
 
 export const createTask = frmDt => {

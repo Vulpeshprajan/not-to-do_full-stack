@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const mongoClient = async () => {
     try {
         console.log("mongo is connected")
-        // const uri = "mongodb://localhost/task_Lists"
+       
         const uri = process.env.MONGODB_CLIENT
         const con = await mongoose.connect(uri, {
             useNewUrlParser: true,
